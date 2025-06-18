@@ -1,21 +1,56 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const calculateSlice = createSlice ( {
+const initialState = {
+    currentInput: '0', //bieżący input
+    expression: '', // działanie
+    result: null, // wynik
+    history: [], // historia działań
+    undoStack: [], //stos do cofania operacji
+    redoStack: [], //stos do ponownia operacji
+};
+
+export const calculatorSlice = createSlice ( {
     name: 'calculator',
-    initialState: {
-        currentInput: '0', //bieżący input
-        expression: '', // działanie
-        result: null, // wynik
-        history: [], // historia działań
-        undoStack: [], //stos do cofania operacji
-        redoStack: [], //stos do ponownia operacji
-    },
+    initialState,
     reducers: {
-        akcja1(state, action) {
+        inputDigit: (state, action) => {    // wprowadzanie liczby
 
         },
-        akcja2(state,action) {
+        
+        inputOperator: (state, action) => {    // wprowadzanie operatora matematycznego
 
         },
+
+        inputOperator: (state, action) => {    // wprowadzanie operatora matematycznego
+
+        },
+
+        calculate: (state) => {    // wykonanie działania
+
+        },
+
+        clear: (state) => {    // wyczyść
+
+        },
+
+        undo: (state) => {    // cofnij
+
+        },
+
+        redo: (state) => {    // ponów
+
+        },
+
     }
-})
+});
+
+export const {
+    inputDigit,
+    inputOperator,
+    calculate,
+    clear,
+    undo,
+    redo,
+} = calculatorSlice.actions;
+
+export default calculatorSlice.reducer;

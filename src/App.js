@@ -10,9 +10,7 @@ function App() {
           <Display/>
           <Keyboard/>
         </Body>
-        
       </div>
-      
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './Display.module.scss'
-const Display = () => {
+const Display = ({props=0}) => {
     return (
-        <div className={styles.display}>Tu będzie wyświetlane działanie</div>)
+        <div className={styles.display}></div>)
 }
 
 export default Display;

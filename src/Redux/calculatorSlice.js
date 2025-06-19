@@ -37,7 +37,7 @@ export const calculatorSlice = createSlice ( {
         },
 
         clear: (state) => {    // wyczyść
-
+            state.currentInput = "0";
         },
 
         undo: (state) => {    // cofnij

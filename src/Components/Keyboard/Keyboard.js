@@ -2,20 +2,33 @@ import Button from '../Button/Button';
 import styles from './Keyboard.module.scss';
 import buttonStyles from '../Button/Button.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputDigit } from '../../Redux/calculatorSlice';
+import { inputDigit, clear } from '../../Redux/calculatorSlice';
 import userEvent from '@testing-library/user-event';
 import { useEffect } from 'react';
 
 const Keyboard = () => {
     const currentNumber = useSelector( (state) => state.calculator.currentInput );
+
     useEffect(( )=> {
             console.log("Kliknięto ", currentNumber);
         }, [currentNumber]);
+
     const dispatch = useDispatch();
+
     const handleClickNumber = (number) => {
         dispatch(inputDigit(number));
     }
+
+    const handleClear = () => {
+        dispatch(clear());
+    }
+
     return <div className={styles.container}>
+        <div>
+            <Button className={buttonStyles.action} onClick={() => handleClickNumber(7)}>UNDO</Button>
+            <Button className={buttonStyles.action} onClick={() => handleClear()}>CLEAR</Button>
+            <Button className={buttonStyles.action} onClick={() => handleClickNumber(9)}>REDO</Button>
+        </div>
         <div>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(7)}>7</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(8)}>8</Button>

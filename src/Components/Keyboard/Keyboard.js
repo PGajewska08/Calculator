@@ -1,10 +1,19 @@
 import Button from '../Button/Button';
 import styles from './Keyboard.module.scss';
 import buttonStyles from '../Button/Button.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { inputDigit } from '../../Redux/calculatorSlice';
+import userEvent from '@testing-library/user-event';
+import { useEffect } from 'react';
 
 const Keyboard = () => {
+    const currentNumber = useSelector( (state) => state.calculator.currentInput );
+    useEffect(( )=> {
+            console.log("Kliknięto ", currentNumber);
+        }, [currentNumber]);
+    const dispatch = useDispatch();
     const handleClickNumber = (number) => {
-        console.log("Kliknięto ", number);
+        dispatch(inputDigit(number));
     }
     return <div className={styles.container}>
         <div>

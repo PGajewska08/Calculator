@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    currentInput: '0', //bieżący input
+    currentInput: "0", //bieżący input
     expression: '', // działanie
     result: null, // wynik
     history: [], // historia działań
@@ -14,7 +14,14 @@ export const calculatorSlice = createSlice ( {
     initialState,
     reducers: {
         inputDigit: (state, action) => {    // wprowadzanie liczby
-
+            const digit = action.payload.toString();
+            if(state.currentInput==="0"){
+                state.currentInput = digit;
+            }
+            else {
+                state.currentInput += digit;
+            }
+            
         },
         
         inputOperator: (state, action) => {    // wprowadzanie operatora matematycznego

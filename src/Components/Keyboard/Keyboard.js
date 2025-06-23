@@ -2,7 +2,7 @@ import Button from '../Button/Button';
 import styles from './Keyboard.module.scss';
 import buttonStyles from '../Button/Button.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputDigit, clear, inputOperator, calculate, addFloat} from '../../Redux/calculatorSlice';
+import { inputDigit, clear, inputOperator, calculate, addFloat, changeSign} from '../../Redux/calculatorSlice';
 import userEvent from '@testing-library/user-event';
 import { useEffect } from 'react';
 
@@ -33,6 +33,10 @@ const Keyboard = () => {
         dispatch(clear());
     }
 
+    const handleChangeSign = () => {
+        dispatch(changeSign());
+    }
+
     return <div className={styles.container}>
         <div>
             <Button className={buttonStyles.action} onClick={() => handleClickNumber(7)}>UNDO</Button>
@@ -58,7 +62,7 @@ const Keyboard = () => {
             <Button className={buttonStyles.multiply} onClick={() => handleClickOperator("*")}>x</Button>
         </div>
         <div>
-            <Button className={buttonStyles.operator}>+/-</Button>
+            <Button className={buttonStyles.operator} onClick={() => handleChangeSign()}>+/-</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(0)}>0</Button>
             <Button className={buttonStyles.operator} onClick={()=>handleAddFloat()}>,</Button>
             <Button className={buttonStyles.divide} onClick={() => handleClickOperator("/")}>/:</Button>

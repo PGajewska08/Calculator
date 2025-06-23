@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { evaluate } from "mathjs";
+import { evaluate, exp } from "mathjs";
 
 const initialState = {
     currentInput: "0", //bieżący input
@@ -39,6 +39,14 @@ export const calculatorSlice = createSlice ( {
             state.currentInput = "0";
         },
 
+        changeSign: (state) => {
+            const currentInput = state.currentInput;
+            const expression = state.expression;
+            state.currentInput = (parseInt(currentInput) *(-1)).toString();
+            state.result = evaluate(expression);
+            console.log("expression:  ",expression);
+        },
+
         addFloat: (state) => {
             if(state.currentInput<=9){
                 state.currentInput += ".";
@@ -72,6 +80,7 @@ export const calculatorSlice = createSlice ( {
 export const {
     inputDigit,
     inputOperator,
+    changeSign,
     addFloat,
     calculate,
     clear,

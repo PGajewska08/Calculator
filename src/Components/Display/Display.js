@@ -10,12 +10,12 @@ const Display = () => {
         console.log("current input: ", value);
         console.log("result ", result);
     }, [value,  result]);
-    if((value==="0")&& (result!=null)){
-        return <div className={styles.display}>{result}</div>
+    if((value !== "") || (result === null)){
+        return <div className={styles.display}>{value}</div>
     }
-    else if((result===null)||(value!=="0")){
+    else {
         return (
-        <div className={styles.display}>{value}</div>)
+        <div className={styles.display}>{result}</div>)
     }
     
     

@@ -36,7 +36,7 @@ export const calculatorSlice = createSlice ( {
             state.result = evaluate(expression);
             state.expression += action.payload;
             // state.result = state.currentInput;
-            state.currentInput = "0";
+            state.currentInput = "";
         },
 
         changeSign: (state) => {
@@ -67,7 +67,7 @@ export const calculatorSlice = createSlice ( {
         },
 
         addFloat: (state) => {
-            if(state.currentInput<=9){
+            if(state.currentInput.length<=9){
                 state.currentInput += ".";
                 state.expression += ".";
             }
@@ -76,7 +76,7 @@ export const calculatorSlice = createSlice ( {
         calculate: (state) => {    // wykonanie działania
             const expression = state.expression;
             state.result = evaluate(expression);
-            state.currentInput = "0";
+            state.currentInput = "";
         },
 
         clear: (state) => {    // wyczyść

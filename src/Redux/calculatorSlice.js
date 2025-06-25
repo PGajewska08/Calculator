@@ -41,10 +41,29 @@ export const calculatorSlice = createSlice ( {
 
         changeSign: (state) => {
             const currentInput = state.currentInput;
+
+            if(currentInput === "0"){
+                return;
+            }
+
+            let newInput;
+
+            if(currentInput.startsWith("-")) {
+                newInput = currentInput.slice(1);
+            }
+            else {
+                newInput = "-" + currentInput;
+            }
+            state.currentInput = newInput;
+            // znajdź pozycję ostatniego wystąpienia currentInput w expression i zamień
+            const lastIndex = state.expression.lastIndexOf(currentInput);
+            if(lastIndex !== -1){
+                state.expression = state.expression.slice(0,lastIndex) + newInput + state.expression.slice(lastIndex + currentInput.length);
+            }
+    
+            //oblicz bieżący wynik
             const expression = state.expression;
-            state.currentInput = (parseInt(currentInput) *(-1)).toString();
             state.result = evaluate(expression);
-            console.log("expression:  ",expression);
         },
 
         addFloat: (state) => {

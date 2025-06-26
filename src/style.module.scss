@@ -1,0 +1,20 @@
+.background {
+    //background-color: #0f0f0f;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    color: #e6e6e6;
+   // box-shadow: 20px;
+    
+}
+
+// reset domyślnych marginesów przeglądarki
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

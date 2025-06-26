@@ -38,38 +38,37 @@ const Keyboard = () => {
     }
 
     return <div className={styles.container}>
-        <div>
+        <div className={styles.row}>
             <Button className={buttonStyles.action} onClick={() => handleClickNumber(7)}>UNDO</Button>
             <Button className={buttonStyles.action} onClick={() => handleClear()}>CLEAR</Button>
             <Button className={buttonStyles.action} onClick={() => handleClickNumber(9)}>REDO</Button>
         </div>
-        <div>
+        <div className={styles.row}>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(7)}>7</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(8)}>8</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(9)}>9</Button>
             <Button className={buttonStyles.add} onClick={() => handleClickOperator("+")}>+</Button>
         </div>
-        <div>
+        <div className={styles.row}>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(4)}>4</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(5)}>5</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(6)}>6</Button>
             <Button className={buttonStyles.substr} onClick={() => handleClickOperator("-")}>-</Button>
         </div>
-        <div>
+        <div className={styles.row}>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(1)}>1</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(2)}>2</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(3)}>3</Button>
             <Button className={buttonStyles.multiply} onClick={() => handleClickOperator("*")}>x</Button>
         </div>
-        <div>
+        <div className={styles.row}>
             <Button className={buttonStyles.operator} onClick={() => handleChangeSign()}>+/-</Button>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(0)}>0</Button>
             <Button className={buttonStyles.operator} onClick={()=>handleAddFloat()}>,</Button>
             <Button className={buttonStyles.divide} onClick={() => handleClickOperator("/")}>/:</Button>
         </div>  
-        <div><Button className={buttonStyles.operator} onClick={() => handleCalculate()}>=</Button></div>
-    </div>
-    
+        <div><Button className={buttonStyles.equal} onClick={() => handleCalculate()}>=</Button></div>
+    </div> 
 }
 
 export default Keyboard;

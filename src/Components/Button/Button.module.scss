@@ -21,6 +21,16 @@
     background: linear-gradient(to right, #00ffd5, #0066ff);
 }
 .action {
-    background-color: #ff4d4d;
+    background-color: #0b0831;
+    color: #00ffd5;
    // width: 110px;
+}
+
+.history {
+    width: 40px;
+    height: 40px;
+    font-size: 50%;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #0066ff;
 }

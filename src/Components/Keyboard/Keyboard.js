@@ -3,6 +3,8 @@ import styles from './Keyboard.module.scss';
 import buttonStyles from '../Button/Button.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { inputDigit, clear, inputOperator, calculate, addFloat, changeSign} from '../../Redux/calculatorSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRotateLeft, faArrowRotateRight, faC } from '@fortawesome/free-solid-svg-icons';
 import userEvent from '@testing-library/user-event';
 import { useEffect } from 'react';
 
@@ -39,9 +41,9 @@ const Keyboard = () => {
 
     return <div className={styles.container}>
         <div className={styles.row}>
-            <Button className={buttonStyles.action} onClick={() => handleClickNumber(7)}>UNDO</Button>
-            <Button className={buttonStyles.action} onClick={() => handleClear()}>CLEAR</Button>
-            <Button className={buttonStyles.action} onClick={() => handleClickNumber(9)}>REDO</Button>
+            <Button className={buttonStyles.action}><FontAwesomeIcon icon={faArrowRotateLeft} /></Button>
+            <Button className={buttonStyles.action} onClick={() => handleClear()}><FontAwesomeIcon icon={faC} /></Button>
+            <Button className={buttonStyles.action}><FontAwesomeIcon icon={faArrowRotateRight} /></Button>
         </div>
         <div className={styles.row}>
             <Button className={buttonStyles.number} onClick={() => handleClickNumber(7)}>7</Button>

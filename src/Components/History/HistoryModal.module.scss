@@ -1,8 +1,29 @@
 .modal {
     background-color: rgb(195, 219, 219);
-    width: 300px;
+    min-width: 300px;
     color:black;
     font-size: 20px;
     margin-left: 20px;
     min-height: 300px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+
+}
+li {
+    margin-bottom: 5px;
+}
+
+p {
+    text-align: center;
+}
+
+.last {
+    font-weight: bold;
+    //color: #0b0831;
+    text-shadow: rgb(154, 156, 238) 0px 0 5px;
 }

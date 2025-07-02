@@ -1,9 +1,16 @@
 import styles from './HistoryModal.module.scss';
 
-const HistoryModal = () => {
+const HistoryModal = ({history}) => {
     return (
-        <div></div>
-    )
+        <div className={styles.modal}>
+            <ul>
+                {history.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+           
+        </div>
+    );
 }
 
 export default HistoryModal;

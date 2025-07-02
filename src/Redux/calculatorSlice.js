@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { evaluate, exp } from "mathjs";
+import { evaluate } from "mathjs";
 
 const initialState = {
     currentInput: "0", //bieżący input
     expression: '', // działanie
     result: null, // wynik
     history: [], // historia działań
+    isHistoryVisible: false,
     undoStack: [], //stos do cofania operacji
     redoStack: [], //stos do ponownia operacji
 };
@@ -93,6 +94,19 @@ export const calculatorSlice = createSlice ( {
 
         },
 
+        addToHistory: (state, action) => {
+            const expression = action.payload.toString();
+            const result = state.result;
+            state.history.push(expression+"="+result);
+            state.history.map((item, index) => {
+                console.log(index+": "+item);
+            });
+        },
+
+        toggleHistoryModal: (state) => {
+            state.isHistoryVisible = !state.isHistoryVisible;
+            console.log(state.isHistoryVisible);
+        }, 
     }
 });
 
@@ -105,6 +119,8 @@ export const {
     clear,
     undo,
     redo,
+    addToHistory,
+    toggleHistoryModal,
 } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

@@ -2,10 +2,9 @@ import Button from '../Button/Button';
 import styles from './Keyboard.module.scss';
 import buttonStyles from '../Button/Button.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputDigit, clear, inputOperator, calculate, addFloat, changeSign} from '../../Redux/calculatorSlice';
+import { inputDigit, clear, inputOperator, calculate, addFloat, changeSign, addToHistory} from '../../Redux/calculatorSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRotateLeft, faArrowRotateRight, faC } from '@fortawesome/free-solid-svg-icons';
-import userEvent from '@testing-library/user-event';
 import { useEffect } from 'react';
 
 const Keyboard = () => {
@@ -29,6 +28,7 @@ const Keyboard = () => {
     }
     const handleCalculate = () => {
         dispatch(calculate());
+        dispatch(addToHistory(expression));
     }
 
     const handleClear = () => {
